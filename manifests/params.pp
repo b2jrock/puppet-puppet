@@ -17,13 +17,17 @@ class puppet::params{
   $hiera_config_file    = "${conf_dir}/hiera.yaml"
   $hiera_datadir        = "${conf_dir}/hieradata"
   $hiera_package        = 'hiera'
-  $puppetmaster_package = 'puppetmaster-passenger'
   $puppetmaster_docroot = "${app_dir}/rack/puppetmasterd/public"
 
 
   case $::osfamily {
     Debian:{
       $ruby_augeas_package  = 'libaugeas-ruby'
+      $puppetmaster_package = 'puppetmaster-passenger'
+    }
+    RedHat:{
+      $ruby_augeas_package  = 'ruby-augeas'
+      $puppetmaster_package = 'puppet-server'
     }
     default:{
       fail("The NeSI Puppet Puppet module does not support ${::osfamily} family of operating systems")
