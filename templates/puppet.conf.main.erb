@@ -19,3 +19,6 @@
   <%- else -%>
   server        = puppet
   <%- end -%>
+  <%- if @ca_server -%>
+  ca_server   = <%= @ca_server %>
+  <%- end -%>
