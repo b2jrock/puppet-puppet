@@ -40,6 +40,7 @@ class puppet (
   $module_paths         = undef,
   $templatedir          = undef,
   $server               = undef,
+  $ca_server            = undef,
   $agent                = 'stopped',
   $report               = false,
   $report_server        = undef,
